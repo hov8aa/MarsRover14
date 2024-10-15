@@ -26,3 +26,6 @@ def turn_rover_right(direction)
     end
 end
 
+def move_rover_forward(rover_x_coordinate, rover_y_coordinate)
+    return rover_x_coordinate, rover_y_coordinate+1
+end
