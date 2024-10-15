@@ -17,4 +17,10 @@ RSpec.describe "Let's learn to move the rover on mars, by first writing specs" d
             expect(turn_rover_right('E')).to eq('S')
         end
     end
+
+    context "validate if the rover moves forward as exepcted" do
+        it "should match the new position and expection position of the rover" do
+            expect(move_rover_forward(1,2)).to eq([1,3])
+        end
+    end
 end

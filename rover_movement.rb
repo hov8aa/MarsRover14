@@ -25,3 +25,4 @@ def turn_rover_right(direction)
         return 'N'
     end
 end
+
