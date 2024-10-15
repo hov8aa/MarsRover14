@@ -13,3 +13,15 @@ def turn_rover_left(direction)
         return 'N'
     end
 end
+
+def turn_rover_right(direction)
+    if direction == 'N'
+        return 'E'
+    elsif direction == 'E'
+        return 'S'
+    elsif direction == 'S'
+        return 'W'
+    elsif direction == 'W'
+        return 'N'
+    end
+end
