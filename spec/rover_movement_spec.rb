@@ -8,9 +8,9 @@ RSpec.describe "Let's learn to move the rover on mars, by first writing specs" d
         end
     end
 
-    context "validate if the rover moves in all the directions as expected" do
-        it "should check if the rover face direction before movement and after movement are as expected" do
-            expect (move_rover_in_any_direction('E')).to eq('N')
+    context "validate if the rover moves left in all the directions as expected" do
+        it "should check if the rover face direction before left turn and after left turn are as expected" do
+            expect(turn_rover_left('E')).to eq('N')
         end
     end
 end
