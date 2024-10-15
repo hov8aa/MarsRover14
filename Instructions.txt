@@ -1,0 +1,5 @@
+Rewrite MarsRover from scratch to test the code through rspec and then sheel-script 
+
+    -While keeping I/O and domain logic separate.
+
+    -Also write a readme so that someone new can execute it from scratch
