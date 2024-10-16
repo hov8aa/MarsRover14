@@ -29,17 +29,27 @@ RSpec.describe "Let's learn to move the rover on mars, by first writing specs" d
     end
 
     context "validate if the rover moves forward in all the directions as exepcted" do
-        it "should match the new position and expected position of rover in any direction with series of instructions " do
+        it "should match the new position and expected position of rover in any direction with series of instructions" do
             expect(move_rover_forward_anywhere(1,2,'N','LMLMLMLMM')).to eq([1,3])
+        end
+
+        it "should match the new position & rover face with expected position of rover and face in any direction with series of instructions" do
+            expect(move_rover_forward_anywhere_with_direction_knowledge(1,2,'N','LMLMLMLMM')).to eq([1,3,'N'])
+        end
+
+        it "should match the new position & rover face with expected position of rover and face in any direction with series of instructions" do
+            expect(move_rover_forward_anywhere_with_direction_knowledge(3,3,'E','MMRMMRMRRM')).to eq([5,1,'E'])
         end
     end
 
-=begin
-    context "" do
-        it "" do
-            expect().to eq()
+    context "validate if the rover moves within plateau boundaries" do
+        it "should find out the final position of rover and see if it's within plateau boundaries" do
+            expect(move_rover_forward_within_plateau_boundaries(5,5,3,3,'E','MMRMMRMRRM')).to be true
+        end
+
+        it "should find out the final position of rover and see if it's within plateau boundaries" do
+            expect(move_rover_forward_within_plateau_boundaries(5,5,3,3,'E','MMRMMRMRRMMMMMMMMMMMMMMMMMM')).to be false
         end
     end
-=end
 
 end

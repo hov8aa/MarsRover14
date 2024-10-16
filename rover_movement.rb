@@ -44,6 +44,21 @@ end
 
 def move_rover_forward_anywhere(rover_x_coordinate,rover_y_coordinate,direction,instructions)
     i=0
+    while i <= instructions.length
+        if instructions[i] == 'L'
+            direction = turn_rover_left(direction)
+        elsif instructions[i] == 'R'
+            direction = turn_rover_right(direction)
+        elsif instructions[i] == 'M'
+            rover_x_coordinate,rover_y_coordinate = move_rover_forward_in_any_direction(rover_x_coordinate,rover_y_coordinate,direction)
+        end
+        i+=1
+    end
+    return rover_x_coordinate, rover_y_coordinate
+end
+
+def move_rover_forward_anywhere_with_direction_knowledge(rover_x_coordinate,rover_y_coordinate,direction,instructions)
+    i=0
     while i < instructions.length
         if instructions[i] == 'L'
             direction = turn_rover_left(direction)
@@ -54,5 +69,15 @@ def move_rover_forward_anywhere(rover_x_coordinate,rover_y_coordinate,direction,
         end
         i+=1
     end
-    return rover_x_coordinate,rover_y_coordinate
+    return rover_x_coordinate, rover_y_coordinate, direction
+end
+
+def move_rover_forward_within_plateau_boundaries(plateau_x_coordinate, plateau_y_coordinate, rover_x_coordinate,rover_y_coordinate,direction,instructions)
+    rover_x_coordinate, rover_y_coordinate = move_rover_forward_anywhere(rover_x_coordinate, rover_y_coordinate, direction, instructions)
+
+    if (rover_x_coordinate <= plateau_x_coordinate) && (rover_y_coordinate <= plateau_y_coordinate) && (rover_x_coordinate >=0) && (rover_y_coordinate >=0)
+        return true
+    elsif (rover_x_coordinate > plateau_x_coordinate) || (rover_y_coordinate > plateau_y_coordinate) || (rover_x_coordinate <0) || (rover_y_coordinate <0)
+        return false
+    end
 end
