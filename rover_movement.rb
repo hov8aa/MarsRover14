@@ -29,3 +29,30 @@ end
 def move_rover_forward(rover_x_coordinate, rover_y_coordinate)
     return rover_x_coordinate, rover_y_coordinate+1
 end
+
+def move_rover_forward_in_any_direction(rover_x_coordinate, rover_y_coordinate,direction)
+    if direction == 'N'
+        return rover_x_coordinate, rover_y_coordinate+1
+    elsif direction == 'W'
+        return rover_x_coordinate-1, rover_y_coordinate
+    elsif direction == 'S'
+        return rover_x_coordinate, rover_y_coordinate-1
+    elsif direction == 'E'
+        return rover_x_coordinate+1, rover_y_coordinate
+    end
+end
+
+def move_rover_forward_anywhere(rover_x_coordinate,rover_y_coordinate,direction,instructions)
+    i=0
+    while i < instructions.length
+        if instructions[i] == 'L'
+            direction = turn_rover_left(direction)
+        elsif instructions[i] == 'R'
+            direction = turn_rover_right(direction)
+        elsif instructions[i] == 'M'
+            rover_x_coordinate,rover_y_coordinate = move_rover_forward_in_any_direction(rover_x_coordinate,rover_y_coordinate,direction)
+        end
+        i+=1
+    end
+    return rover_x_coordinate,rover_y_coordinate
+end

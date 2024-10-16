@@ -22,6 +22,10 @@ RSpec.describe "Let's learn to move the rover on mars, by first writing specs" d
         it "should match the new position and expected position of the rover" do
             expect(move_rover_forward(1,2)).to eq([1,3])
         end
+
+        it "should match the new position and expected position of the rover" do
+            expect(move_rover_forward_in_any_direction(1,2,'N')).to eq([1,3])
+        end
     end
 
     context "validate if the rover moves forward in all the directions as exepcted" do
